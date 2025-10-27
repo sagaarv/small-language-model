@@ -14,11 +14,17 @@ void languagemodel::frequency_kgram(const std::string &input){
 			kgram = kgram + input[i + j];
 		}
 		char next = input[i + k];
-		kgram_amount[kgram]++;
+		kgram_amount[kgram]++;			//n(w)
+		kgram_follow[kgram][next]++;		//n(w,c)
 	}
 }
-
-
+//function that calculates the conditional probability P(c|w)
+double conditional_prob (const char next, std::string &kgram){
+	double count_kgram_amount = kgram_amount.at(kgram);		//.at to access the amount of words
+	double count_kgram_follow = kgram_follow.at(kgram).at(next);
+	double prob = count_kgram_follow/count_gram_amount;
+	return prob;
+}
 
 
 

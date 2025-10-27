@@ -23,7 +23,6 @@ int main(int argc, char* argv[]){
 	std::string filename = argv[2];
 	int length = std::stoi(argv[3]);
 
-	languagemodel 
 
-	std::cout << output << std::endl;
+	//std::cout << output << std::endl;
 }
