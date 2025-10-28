@@ -1,14 +1,18 @@
 //Headerfile for my text generator
-#include "languagemodel"
+#include "languagemodel.h"
 #include <iostream>
 #include <string>
 
 
 class generatetext {
 
+	private:
+
 	public:
 
-	private:
+	generatetext();
+	std::string generate(int leng);		//Generate string with given length
+
 
 
 
