@@ -19,10 +19,10 @@ void languagemodel::frequency_kgram(const std::string &input){
 	}
 }
 //function that calculates the conditional probability P(c|w)
-double conditional_prob (const char next, std::string &kgram){
+double languagemodel::conditional_prob (const char next, std::string &kgram){
 	double count_kgram_amount = kgram_amount.at(kgram);		//.at to access the amount of words
 	double count_kgram_follow = kgram_follow.at(kgram).at(next);
-	double prob = count_kgram_follow/count_gram_amount;
+	double prob = count_kgram_follow/count_kgram_amount;
 	return prob;
 }
 

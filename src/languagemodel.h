@@ -8,7 +8,7 @@ class languagemodel {
         int k;
 
         std::map <std::string, int> kgram_amount;				//to store my k-grams
-        std::map <std::string, std::map<char, int>> kgram_follow		//Lets me look at any k_gram and what follows it
+        std::map <std::string, std::map<char, int>> kgram_follow;		//Lets me look at any k_gram and what follows it
         public:
 
         languagemodel(int k);

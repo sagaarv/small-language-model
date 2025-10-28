@@ -11,6 +11,9 @@ int main(int argc, char* argv[]){
 		std::cout << "Usage wrong" << std::endl;
 		return 1;
 	}
+	int k = std::stoi(argv[1]);
+	std::string filename = argv[2];
+	int length = std::stoi(argv[3]);
 
 	std::ifstream file(filename);
 	std::string text;
@@ -19,9 +22,6 @@ int main(int argc, char* argv[]){
 		text = text + line + "\n";
 	}
 
-	int k = std::stoi(argv[1]);
-	std::string filename = argv[2];
-	int length = std::stoi(argv[3]);
 
 
 	//std::cout << output << std::endl;
