@@ -20,5 +20,9 @@ class languagemodel {
         //function that get the conditional probability of the word c after the word w, P(c | w)
         double conditional_prob(const char next, std::string &kgram) const;
 
+	//function that chooses a random starting k-gram
+	std::string get_kgram() const;
 
+	//funtion that picks the next character c
+	char character_c(const std::string &kgram) const;
 };

@@ -8,7 +8,7 @@
 int main(int argc, char* argv[]){
 
 	if(argc<4){
-		std::cout << "Usage wrong" << std::endl;
+		std::cout << "Usage wrong: slm <k> <filename> <length>" << std::endl;
 		return 1;
 	}
 	int k = std::stoi(argv[1]);
