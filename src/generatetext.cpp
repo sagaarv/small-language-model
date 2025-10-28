@@ -2,15 +2,11 @@
 #include <iostream>
 
 
-generatetext::generatetext(){
+generatetext::generatetext(const languagemodel& m) : model(m) {}
+
+std::string generatetext::generater(int leng){
 
 }
 
-std::string generate(int leng){
-
-}
 
 
-int main(){
-
-}

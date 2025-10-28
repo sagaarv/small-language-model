@@ -8,10 +8,13 @@ class generatetext {
 
 	private:
 
+	const languagemodel& model;
+
 	public:
 
-	generatetext();
-	std::string generate(int leng);		//Generate string with given length
+	generatetext(const languagemodel& model);
+
+	std::string generater(int leng);			//Generate string with given length
 
 
 

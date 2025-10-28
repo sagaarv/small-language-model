@@ -3,8 +3,7 @@
 #include <iostream>
 #include <string>
 
-languagemodel::languagemodel(int k){
-}
+languagemodel::languagemodel(int k){}
 //this function is a part of training the model by extracting the frequency of each k-gram, constricted by the length k.
 void languagemodel::frequency_kgram(const std::string &input){
 
@@ -19,7 +18,7 @@ void languagemodel::frequency_kgram(const std::string &input){
 	}
 }
 //function that calculates the conditional probability P(c|w)
-double languagemodel::conditional_prob (const char next, std::string &kgram){
+double languagemodel::conditional_prob (const char next, std::string &kgram) const{
 	double count_kgram_amount = kgram_amount.at(kgram);		//.at to access the amount of words
 	double count_kgram_follow = kgram_follow.at(kgram).at(next);
 	double prob = count_kgram_follow/count_kgram_amount;

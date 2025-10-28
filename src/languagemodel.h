@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#pragma once 				//inlcude my class one time and on time only
 class languagemodel {
         private:
         int k;
@@ -17,7 +18,7 @@ class languagemodel {
         void frequency_kgram(const std::string &input);
 
         //function that get the conditional probability of the word c after the word w, P(c | w)
-        double conditional_prob(const char next, std::string &kgram);
+        double conditional_prob(const char next, std::string &kgram) const;
 
 
 };
