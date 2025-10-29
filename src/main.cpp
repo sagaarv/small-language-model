@@ -2,15 +2,6 @@
 #include "generatetext.h"
 #include <iostream>
 #include <fstream>
-#include <sstream>
-
-std::string readfile(const std::string& filename){
-	std::ifstream file(filename);
-
-	std::stringstream buffer;
-	buffer << file.rdbuf();
-	return buffer.str();
-}
 
 int main(int argc, char* argv[]){
 
@@ -22,13 +13,12 @@ int main(int argc, char* argv[]){
 	std::string filename = argv[2];
 	int length = std::atoi(argv[3]);
 
-	std::string text = readfile(filename);
-	//std::ifstream file(filename);
-	//std::string text;
-	//std::string line;
-	//while(std::getline(file, text)){
-	//	text = text + line + "\n";
-	//}
+	std::ifstream file(filename);
+	std::string text;
+	std::string line;
+	while(std::getline(file, text)){
+		text = text + line + "\n";
+	}
 
 	languagemodel model(k);
 	model.frequency_kgram(text);
