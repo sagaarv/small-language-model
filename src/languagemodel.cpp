@@ -13,10 +13,7 @@ languagemodel::languagemodel(int k_val){
 void languagemodel::frequency_kgram(const std::string &input){
 
 	for(int i = 0; i + k < input.size(); i++){
-		std::string kgram = "";
-		for(int j = 0; j < k; k++){
-			kgram = kgram + input[i + j];
-		}
+		std::string kgram = input.substr(i,k);
 		char next = input[i + k];
 		kgram_amount[kgram]++;			//n(w)
 		kgram_follow[kgram][next]++;		//n(w,c)
@@ -43,13 +40,30 @@ std::string languagemodel::get_kgram() const{
 	}
 	//choose random index
 	std::srand(std::time(nullptr));
-	int index = std::rand() % tmp+1;
+	int index = std::rand() % tmp + 1;
 	return kgrams[index];
 
 }
 
-//funtion that picks the next character c
+//funtion that picks the next character c, according to the frequencies
 char languagemodel::character_c(const std::string &kgram) const{
-
-
+	const std::map<char,int> &next_char = kgram_follow.at(kgram);
+	//auto next_char = kgram_follow.at(kgram);
+	int counter = 0;
+	int temp = 0;
+	for(auto sum : next_char){ 				//acces the counts of the kgrams
+		temp = temp + sum.second;
+		counter++;
+	}
+	//choose a random index and find that specific character 
+	std::srand(std::time(nullptr));
+	int num = std::rand() % counter + 1;
+	int temp2 = 0;
+	for(auto sum : next_char){
+		temp2 = temp2 + sum.second;
+		if(temp2 >= num){
+			return sum.first;
+		}
+	}
+	return ' ';
 }

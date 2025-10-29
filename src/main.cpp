@@ -2,8 +2,15 @@
 #include "generatetext.h"
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
+std::string readfile(const std::string& filename){
+	std::ifstream file(filename);
 
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+	return buffer.str();
+}
 
 int main(int argc, char* argv[]){
 
@@ -11,18 +18,21 @@ int main(int argc, char* argv[]){
 		std::cout << "Usage wrong: slm <k> <filename> <length>" << std::endl;
 		return 1;
 	}
-	int k = std::stoi(argv[1]);
+	int k = std::atoi(argv[1]);
 	std::string filename = argv[2];
-	int length = std::stoi(argv[3]);
+	int length = std::atoi(argv[3]);
 
-	std::ifstream file(filename);
-	std::string text;
-	std::string line;
-	while(std::getline(file, text)){
-		text = text + line + "\n";
-	}
+	std::string text = readfile(filename);
+	//std::ifstream file(filename);
+	//std::string text;
+	//std::string line;
+	//while(std::getline(file, text)){
+	//	text = text + line + "\n";
+	//}
 
+	languagemodel model(k);
+	model.frequency_kgram(text);
+	generatetext gen(model);
 
-
-	//std::cout << output << std::endl;
+	std::cout << gen.generater(length) << std::endl;
 }

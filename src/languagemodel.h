@@ -6,12 +6,12 @@
 #pragma once 				//inlcude my class one time and on time only
 class languagemodel {
         private:
-        int k;
+        //int k;
 
         std::map <std::string, int> kgram_amount;				//to store my k-grams
         std::map <std::string, std::map<char, int>> kgram_follow;		//Lets me look at any k_gram and what follows it
         public:
-
+	int k;
         languagemodel(int k);
 
         //function that gets the frequency of each k-gram
